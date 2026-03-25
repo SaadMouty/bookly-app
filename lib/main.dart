@@ -13,6 +13,7 @@ class bookly extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: kprimaryColor,
       ),
@@ -20,4 +21,3 @@ class bookly extends StatelessWidget {
     );
   }
 }
-
