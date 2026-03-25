@@ -25,8 +25,6 @@ class _SplashViewBodyState extends State<SplashViewBody>
     navigateToHome();
   }
 
-
-
   @override
   void dispose() {
     super.dispose();
@@ -37,8 +35,16 @@ class _SplashViewBodyState extends State<SplashViewBody>
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Image.asset(AssetsData.logo),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30),
+          child: Image.asset(
+            AssetsData.logo,
+            height: 100,
+            width: 340,
+          ),
+        ),
         SlidingText(slidingAnimation: slidingAnimation),
       ],
     );
@@ -47,7 +53,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
   void initSlidingAnimation() {
     animationController = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 1),
+      duration: const Duration(seconds: 2),
     );
     slidingAnimation =
         Tween<Offset>(begin: const Offset(0, 100), end: Offset.zero)
@@ -55,8 +61,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
     animationController.forward();
   }
 
-
-    void navigateToHome() {
+  void navigateToHome() {
     Future.delayed(const Duration(seconds: 3), () {
       Get.to(() => const HomeView(),
           transition: Transition.fade, duration: kTransitionDuration);
